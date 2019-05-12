@@ -1,4 +1,4 @@
-package com.company.lab2;
+package com.company.semestr1.lab2;
 
 public class Ortogonalize {
     public static void main(String[] args) {

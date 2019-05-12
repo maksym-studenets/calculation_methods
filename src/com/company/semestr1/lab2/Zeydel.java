@@ -1,4 +1,4 @@
-package com.company.lab2;
+package com.company.semestr1.lab2;
 
 public class Zeydel {
     private static final double eps = 0.01;
