@@ -1,7 +1,8 @@
 package com.company.semestr1.lab2;
 
 public class Zeydel {
-    private static final double eps = 0.01;
+    private static final double EPS = 0.01;
+
     public static void main(String[] args) {
         double[][] a = {
                 {3.82, 1.02, 0.75, 0.81},
@@ -12,10 +13,9 @@ public class Zeydel {
         double[] b = {15.65, 22.70, 23.48, 16.11};
         double[] x = new double[a.length];
         double[] prev = new double[a.length];
+
         do {
-            for (int i = 0; i < x.length; i++) {
-                prev[i] = x[i];
-            }
+            System.arraycopy(x, 0, prev, 0, x.length);
             for (int i = 0; i < x.length; i++) {
                 double var = 0;
                 for (int j = 0; j < i; j++) {
@@ -27,15 +27,17 @@ public class Zeydel {
                 x[i] = (b[i] - var) / a[i][i];
             }
         } while (!converge(x, prev));
-        for (int i = 0; i < x.length; i++) {
-            System.out.println(x[i]);
+
+        for (double x1 : x) {
+            System.out.println(x1);
         }
     }
+
     private static boolean converge(double[] x, double[] prev) {
         double norm = 0;
         for (int i = 0; i < x.length; i++) {
             norm += (x[i] - prev[i]) * (x[i] - prev[i]);
         }
-        return Math.sqrt(norm) < eps;
+        return Math.sqrt(norm) < EPS;
     }
 }
